@@ -1,7 +1,7 @@
 /* ================= VARIABLES GLOBALES (ROOT) ================= */
 :root {
     --color-bg: #0a192f;
-    --color-primary: #64ffda;       /* Verde Cyan */
+    --color-primary: #ffffff;       /* Verde Cyan */
     --color-text-main: #ccd6f6;     /* Gris muy claro */
     --color-text-secondary: #8892b0; /* Gris azulado */
     --color-text-white: #ffffff;    /* Blanco Puro para el Hero */
