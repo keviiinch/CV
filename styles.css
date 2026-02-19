@@ -1,0 +1,565 @@
+/* ================= VARIABLES GLOBALES (ROOT) ================= */
+:root {
+    --color-bg: #0a192f;
+    --color-primary: #64ffda;       /* Verde Cyan */
+    --color-text-main: #ccd6f6;     /* Gris muy claro */
+    --color-text-secondary: #8892b0; /* Gris azulado */
+    --color-text-white: #ffffff;    /* Blanco Puro para el Hero */
+    --color-card: #112240;
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+
+    --transition: all 0.3s ease;
+}
+
+/* ================= RESETEO BÁSICO ================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+}
+
+/* ================= UTILIDADES ================= */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-mono);
+    color: var(--color-text-main);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 1px;
+    background-color: #233554;
+    margin-left: 20px;
+}
+
+/* ================= HEADER & NAVEGACIÓN ================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 25, 47, 0.95); /* Un poco más oscuro para mejor lectura */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+/* Menú Móvil (Oculto por defecto) */
+.nav-links {
+    list-style: none;
+    display: none; /* Se activa con JS */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--color-card);
+    width: 75%;
+    height: 100vh;
+    padding: 2rem;
+    box-shadow: -10px 0px 30px -15px rgba(2,12,27,0.7);
+    z-index: 999;
+}
+
+/* Clase activa para mostrar menú móvil */
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-main);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+/* Botón Hamburguesa */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* ================= HERO (SECCIÓN PRINCIPAL) ================= */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+/* Fondo de imagen */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; 
+}
+
+/* --- MEJORA DE CONTRASTE (IMPORTANTE) --- */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado: Muy oscuro a la izquierda (donde va el texto) -> Transparente a la derecha (donde estás tú) */
+    background: linear-gradient(90deg, rgba(10, 25, 47, 0.95) 0%, rgba(10, 25, 47, 0.85) 40%, rgba(10, 25, 47, 0.3) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+/* Estilos de Texto del Hero para Alta Legibilidad */
+.intro {
+    font-family: var(--font-mono);
+    color: var(--color-primary);
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Sombra para resaltar */
+}
+
+.hero-title {
+    font-size: clamp(40px, 8vw, 75px);
+    color: var(--color-text-white); /* Blanco puro */
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.9); /* Sombra fuerte contra el cielo */
+}
+
+.hero-subtitle {
+    font-size: clamp(25px, 5vw, 60px);
+    color: #e6f1ff; /* Casi blanco */
+    line-height: 1.1;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.9); /* Sombra fuerte */
+}
+
+.hero-description {
+    max-width: 540px;
+    margin-bottom: 40px;
+    font-size: 1.15rem;
+    color: #ffffff; /* Texto blanco para leerse bien */
+    text-shadow: 1px 1px 3px rgba(0,0,0,1); /* Sombra negra sólida */
+    
+    /* Fondo semitransparente detrás del párrafo para garantizar lectura */
+    background-color: rgba(2, 12, 27, 0.5); 
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid var(--color-primary);
+}
+
+/* Botón Hero */
+.btn-primary {
+    display: inline-block;
+    padding: 1.2rem 2rem;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background: rgba(10, 25, 47, 0.7); /* Fondo oscuro semitransparente */
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    transition: var(--transition);
+    backdrop-filter: blur(2px);
+}
+
+.btn-primary:hover {
+    background-color: rgba(100, 255, 218, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ================= SECCIÓN SOBRE MÍ (ABOUT) ================= */
+.about {
+    padding: 100px 0;
+    background-color: var(--color-bg); /* Fondo sólido para recuperar el tema tras el hero */
+}
+
+.about-grid {
+    display: grid;
+    gap: 3rem;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+.image-frame {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    transition: var(--transition);
+}
+
+/* Cuadro decorativo detrás de la foto */
+.image-frame::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--color-primary);
+    top: 15px;
+    left: 15px;
+    z-index: -1;
+    transition: var(--transition);
+    border-radius: 4px;
+}
+
+.image-frame:hover::after {
+    top: 8px;
+    left: 8px;
+}
+
+.image-frame img {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    border-radius: 4px;
+    filter: grayscale(100%) contrast(1); /* Efecto blanco y negro */
+    transition: var(--transition);
+}
+
+.image-frame:hover img {
+    filter: none; /* Vuelve a color al pasar el mouse */
+}
+
+/* ================= EXPERIENCIA ================= */
+.experience {
+    padding: 100px 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experience-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.experience-tabs {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #233554;
+    color: var(--color-text-secondary);
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.tab:hover, .tab.active {
+    color: var(--color-primary);
+    background-color: #112240;
+}
+
+.tab.active {
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.job {
+    display: none; /* Oculto por defecto */
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.job.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.job h3 {
+    color: var(--color-text-main);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.job ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.job li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.job li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+}
+
+/* ================= PROYECTOS (WORK) ================= */
+.work {
+    padding: 100px 0;
+}
+
+.projects-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--color-card);
+    padding: 2rem;
+    border-radius: 6px;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+}
+
+.project-card h3 {
+    color: var(--color-text-main);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    margin: 1.5rem 0;
+    color: var(--color-text-secondary);
+}
+
+.project-links {
+    margin-top: auto;
+}
+
+.project-links a {
+    color: var(--color-text-main);
+    text-decoration: none;
+    margin-right: 1.5rem;
+    transition: var(--transition);
+}
+
+.project-links a:hover {
+    color: var(--color-primary);
+}
+
+/* ================= CONTACTO ================= */
+.contact {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    padding: 2rem 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--color-text-secondary);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+}
+
+/* ================= ANIMACIÓN SCROLL REVEAL ================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= MEDIA QUERIES (RESPONSIVE) ================= */
+
+/* Tablets y Escritorio (Pantallas mayores a 768px) */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .about-grid {
+        grid-template-columns: 3fr 2fr;
+        align-items: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-content {
+        flex-direction: row;
+    }
+
+    .experience-tabs {
+        flex-direction: column;
+        min-width: 150px;
+        margin-bottom: 0;
+        border-left: 2px solid #233554;
+        border-bottom: none;
+    }
+
+    .tab {
+        text-align: left;
+        border-bottom: none;
+        border-left: 2px solid transparent;
+        margin-left: -2px; /* Superponer borde */
+    }
+
+    .tab.active {
+        border-bottom: none;
+        border-left: 2px solid var(--color-primary);
+    }
+}

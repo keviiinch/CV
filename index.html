@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kevin Ceron | Ingeniero de Sistemas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo"></div>
+
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#experience">Estudios</a></li>
+                    <li><a href="#work">Proyectos</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero reveal">
+            <div class="hero-background">
+                <img src="imagenes/portada.jpeg" alt="Fondo de perfil de Kevin Ceron">
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="container hero-content">
+                <p class="intro">Hola, mi nombre es</p>
+                <h1 class="hero-title">Kevin Cerón Hernández.</h1>
+                <h2 class="hero-subtitle">Creo soluciones para la web.</h2>
+                <p class="hero-description">
+                    Soy un proximo Ingeniero de Sistemas especializado en construir aplicaciones web modernas, escalables y de alto rendimiento.
+                </p>
+        
+            </div>
+        </section>
+
+        <section id="about" class="about reveal">
+            <div class="container about-grid">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre mí</h2>
+                    <p>
+                        Soy un apasionado Tecnico en Informatica enfocado en la arquitectura frontend, principios de código limpio (Clean Code) y optimización del rendimiento.
+                    </p>
+                    <p>
+                        Mi objetivo es diseñar productos digitales mantenibles, escalables y centrados en la experiencia del usuario.
+                    </p>
+                </div>
+
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="imagenes/fotoperfil.jpeg" alt="Foto de perfil pequeña">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience reveal">
+            <div class="container experience-container">
+                <h2 class="section-title">Estudios</h2>
+
+                <div class="experience-content">
+                    <div class="experience-tabs">
+                        <button class="tab active" data-target="job1">Bachillerato </button>
+                        <button class="tab" data-target="job2">Universidad</button>
+                        
+                    </div>
+
+                    <div class="experience-details">
+                        <div id="job1" class="job active">
+                            <h3>Técnico en Informática</h3>
+                            <ul>
+                                <li>Egresado del Cbt Dr. Efraín Hernández Xolocotzi, Hueypoxtla</li>
+                                <li>Profesional capacitado para instalar, configurar, mantener
+                                    y reparar hardware y software, así como gestionar redes y brindar soporte técnico a usuarios.
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div id="job2" class="job">
+                            <h3>Ingeniero en Sistemas Computacionales</h3>
+                            <ul>
+                                <li>Actualmente cursando</li>
+                     
+                            </ul>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="work" class="work reveal">
+            <div class="container">
+                <h2 class="section-title">Proyectos</h2>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div class="project-content">
+                            <h3>webApp-color</h3>
+                            <p>Sitio personal construido con arquitectura limpia y CSS moderno para manejar RGB.</p>
+                            <ul class="tech-list">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/keviiinch/webApp-color">GitHub</a>
+                          
+                        </div>
+                    </article>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact reveal">
+            <div class="container contact-container">
+                <h2 class="section-title">Contáctame</h2>
+                <p>
+                    Actualmente estoy abierto a nuevas oportunidades. Si tienes una pregunta o simplemente quieres saludar, ¡hablemos!
+                </p>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>Diseñado y Construido por Kevin Cerón Hernández</p>
+            <div class="social-links">
+                <a href="https://github.com/keviiinch">GitHub</a>
+                <a href="https://www.linkedin.com/in/kevin-cer%C3%B3n-hern%C3%A1ndez-6388253b0">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
